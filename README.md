@@ -81,3 +81,10 @@ RTTG予約管理は私が働いているリゾートトラスト株式会社の�
 * お客様の登録した誕生日の1週間前に通知機能
 * 自身の営業成績をグラフ化　Chartkick
 * 登録された誕生日の1週間前に自動通知
+
+
+画面遷移図　
+figma https://www.figma.com/file/Vw58QAmeeH0yrqRf4VDq6x/RTTG?type=design&node-id=0-1&mode=design&t=QE0JhxVR6D1rQS9C-0
+
+ER図
+https://app.diagrams.net/#G1bmtIvaSXf1NrpRRWZCjWxfb7gEdQBcuq
