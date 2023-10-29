@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hotel_id: 1
+  customer_id: 1
+  user_id: 1
+  day: 2023-10-25
+  number_of_people: 1
+  is_smoking: false
+  food: MyString
+  course: MyString
+  memo: MyText
+  status: false
+  reservation_number: 1
+
+two:
+  hotel_id: 1
+  customer_id: 1
+  user_id: 1
+  day: 2023-10-25
+  number_of_people: 1
+  is_smoking: false
+  food: MyString
+  course: MyString
+  memo: MyText
+  status: false
+  reservation_number: 1

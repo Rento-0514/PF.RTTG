@@ -1,0 +1,9 @@
+<h1>顧客情報</h1>
+<p>名前: <%= @customer.name %></p>
+<p>誕生日: <%= @customer.birthday %></p>
+<p>アレルギー: <%= @customer.allergy %></p>
+<p>メモ: <%= @customer.memo %></p>
+
+<%= link_to "編集", edit_customer_path(@customer) %>
+
+<%= link_to "戻る", customers_path %>
