@@ -1,0 +1,12 @@
+<h1>予約一覧</h1>
+<ul>
+  <% @reservation_requests.each do |request| %>
+    <li>
+      <%= "日程: #{request.day}" %><br>
+      <%= "顧客: #{request.customer.name}" %><br>
+      <%= "ホテル: #{request.hotel.name}" %><br>
+      <%= link_to "詳細", reservation_request_path(request) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "予約作成", new_reservation_request_path %>

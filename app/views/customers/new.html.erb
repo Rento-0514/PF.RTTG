@@ -1,0 +1,13 @@
+<h1>お客様登録</h1>
+<%= form_with(model: @customer, url: customers_path, local: true) do |form| %>
+  <%= form.label :お客様名 %>
+  <%= form.text_field :name %>
+
+  <%= form.label :誕生日 %>
+  <%= form.date_field :birthday %>
+
+  <%= form.label :メモ %>
+  <%= form.text_area :memo %>
+
+  <%= form.submit 'Create Customer' %>
+<% end %>
