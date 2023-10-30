@@ -70,3 +70,14 @@
     display: inline-block; /* 長方形が文字にぴったり合うように */
     padding: 10px; /* 長方形の内側の余白を設定 */
   }
+
+  .edit-image {
+    background-image: url('sacheya'); /* 画像のURLは適宜修正してください */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
