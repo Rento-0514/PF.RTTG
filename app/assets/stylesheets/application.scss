@@ -72,11 +72,20 @@
   }
 
   .edit-image {
-    background-image: url('sacheya'); /* 画像のURLは適宜修正してください */
+    background-image: url('sacheya.jpg'); /* 画像のURLは適宜修正してください */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .reservation-list {
+    background-image: url('asiya.jpg'); /* 画像のURLは適宜修正してね */
+    display: flex;
+    flex-direction: column;
     background-size: cover;
     width: 100%;
     height: 100vh;
