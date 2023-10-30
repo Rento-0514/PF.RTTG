@@ -1,7 +1,18 @@
-<h1>顧客一覧</h1>
+<div class="index-image">
+  <h1 class="text-center">顧客一覧</h1>
 
-<% @customers.each do |customer| %>
-  <%= link_to customer.name, customer_path(customer) %>
-<% end %>
-
-<%= link_to "顧客登録", new_customer_path, class: "button is-warning is-light" %>
+  <div class="container">
+    <div class="d-flex flex-column align-items-center">
+      <% @customers.each do |customer| %>
+        <div class="my-2">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <%= link_to customer.name, customer_path(customer), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= link_to "顧客登録", new_customer_path, class: "btn btn-warning btn-light my-2" %>
+    </div>
+  </div>
+</div>
