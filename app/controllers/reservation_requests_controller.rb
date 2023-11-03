@@ -7,7 +7,7 @@ class ReservationRequestsController < ApplicationController
 
   def create
     @reservation_request = ReservationRequest.new(reservation_request_params)
-    @reservation_request.customer_id = current_user.customer.id
+    @reservation_request.customer_id = params[:reservation_request][:customer_id]
     @reservation_request.hotel_id = params[:reservation_request][:hotel_id]
     if @reservation_request.save
       redirect_to @reservation_request
@@ -39,6 +39,12 @@ class ReservationRequestsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @reservation_request = ReservationRequest.find(params[:id])
+    @reservation_request.destroy
+    redirect_to reservation_requests_path, notice: "予約を削除しました"
   end
 
   private

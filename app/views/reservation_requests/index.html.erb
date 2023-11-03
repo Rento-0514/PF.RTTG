@@ -1,12 +1,42 @@
-<h1>予約一覧</h1>
-<ul>
-  <% @reservation_requests.each do |request| %>
-    <li>
-      <%= "日程: #{request.day}" %><br>
-      <%= "顧客: #{request.customer.name}" %><br>
-      <%= "ホテル: #{request.hotel.name}" %><br>
-      <%= link_to "詳細", reservation_request_path(request) %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to "予約作成", new_reservation_request_path %>
+<div class="reservation-list">
+  <h1 class="text-center">予約一覧</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>予約済</h2>
+      <% @reservation_requests.each do |request| %>
+        <% if request.status? %>
+          <div class="card mb-4">
+            <div class="card-body">
+              <%= "日程: #{request.day}" %><br>
+              <%= "顧客: #{request.customer.name}" %><br>
+              <%= "ホテル: #{request.hotel.name}" %><br>
+              <%= link_to "詳細", reservation_request_path(request), class: 'btn btn-primary' %>
+              <%= link_to "消去", reservation_request_path(request), method: :delete, data: { turbo_confirm: "本当にこの予約リクエストを削除しますか?" }, class: 'btn btn-danger' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <h2>予約済でない</h2>
+      <% @reservation_requests.each do |request| %>
+        <% unless request.status? %>
+          <div class="card mb-4">
+            <div class="card-body">
+              <%= "日程: #{request.day}" %><br>
+              <%= "顧客: #{request.customer.name}" %><br>
+              <%= "ホテル: #{request.hotel.name}" %><br>
+              <%= link_to "詳細", reservation_request_path(request), class: 'btn btn-primary' %>
+              <%= link_to "消去", reservation_request_path(request), method: :delete, data: { turbo_confirm: "本当にこの予約リクエストを削除しますか?" }, class: 'btn btn-danger' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+
+  <%= link_to "予約作成", new_reservation_request_path, class: 'btn btn-primary' %>
+</div>

@@ -28,3 +28,83 @@
   .button-container .btn {
     margin-bottom: 25px; /* ボタン間のスペース */
   }
+
+  .new-image {
+    background-image: url('sact.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 左からのアラインメントをcenterに変更 */
+    justify-content: center; /* 上からのアラインメントをcenterに追加 */
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .index-image {
+    background-image: url('onsen.jpg');
+    display: flex;
+    background-attachment: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+  
+
+  .show-image {
+    background-image: url('onsen.jpg'); /* 画像のURLは適宜修正してください */
+    display: flex;
+    background-attachment: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  h1.text-center {
+    font-size: 4em; /* 文字の大きさを変更 */
+    font-family: 'Itim', cursive; /* フォントを変更 */
+    background-color: rgba(173, 216, 230, 0.5); /* 背景色を薄っすら水色に */
+    display: inline-block; /* 長方形が文字にぴったり合うように */
+    padding: 10px; /* 長方形の内側の余白を設定 */
+  }
+
+  .edit-image {
+    background-image: url('sacheya.jpg'); /* 画像のURLは適宜修正してください */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .reservation-list {
+    background-image: url('arima.jpg'); /* 画像のURLは適宜修正してね */
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+  .new-resevation {
+    background-image: url('hamanako.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 左からのアラインメントをcenterに変更 */
+    justify-content: center; /* 上からのアラインメントをcenterに追加 */
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }

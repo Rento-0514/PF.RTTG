@@ -1,15 +1,18 @@
-<h1>予約詳細</h1>
-<p><strong>日程:</strong> <%= @reservation_request.day %></p>
-<p><strong>顧客名:</strong> <%= @reservation_request.customer.name %></p>
-<p><strong>ホテル:</strong> <%= @reservation_request.hotel.name %></p>
-<p><strong>人数:</strong> <%= @reservation_request.number_of_people %></p>
-<p><strong>喫煙:</strong> <%= @reservation_request.is_smoking ? "はい" : "いいえ" %></p>
-<p><strong>食事:</strong> <%= @reservation_request.food %></p>
-<p><strong>コース:</strong> <%= @reservation_request.course %></p>
-<p><strong>メモ:</strong> <%= @reservation_request.memo %></p>
-<p><strong>予約済:</strong> <%= @reservation_request.status ? "はい" : "いいえ" %></p>
-<%= link_to "編集", edit_reservation_request_path(@reservation_request) %> |
-<%= link_to "一覧に戻る", reservation_requests_path %>
+<div class="new-reservation">
+  <h1>予約詳細</h1>
+  <p><strong>日程:</strong> <%= @reservation_request.day %></p>
+  <p><strong>顧客名:</strong> <%= @reservation_request.customer.name %></p>
+  <p><strong>ホテル:</strong> <%= @reservation_request.hotel.name %></p>
+  <p><strong>人数:</strong> <%= @reservation_request.number_of_people %></p>
+  <p><strong>喫煙:</strong> <%= @reservation_request.is_smoking ? "はい" : "いいえ" %></p>
+  <p><strong>食事:</strong> <%= @reservation_request.food %></p>
+  <p><strong>コース:</strong> <%= @reservation_request.course %></p>
+  <p><strong>メモ:</strong> <%= @reservation_request.memo %></p>
+  <p><strong>予約済:</strong> <%= @reservation_request.status ? "はい" : "いいえ" %></p>
+  <%= link_to "編集", edit_reservation_request_path(@reservation_request) %> |
+  <%= link_to '消去', @reservation_request, method: :delete, data: { confirm: '本当に消去しますか？' } %>
+  <%= link_to "一覧に戻る", reservation_requests_path %>
+</div>
 
 
 
