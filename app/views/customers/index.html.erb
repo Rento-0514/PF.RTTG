@@ -1,10 +1,10 @@
 <%= search_form_for @q do |f| %>
-  <%= f.label :name_cont, "Name" %>
+  <%= f.label :name_cont, "お客様名" %>
   <%= f.search_field :name_cont %>
   <%= f.submit %>
 <% end %>
 <div class="index-image">
-  <h1 class="text-center">顧客一覧</h1>
+  <h1 class="text-center">お客様一覧</h1>
 
   <div class="container">
     <div class="d-flex flex-column align-items-center">
@@ -17,7 +17,7 @@
           </div>
         </div>
       <% end %>
-      <%= link_to "顧客登録", new_customer_path, class: "btn btn-warning btn-light my-2" %>
+      <%= link_to "お客様登録", new_customer_path, class: "btn btn-warning btn-light my-2" %>
     </div>
   </div>
 </div>
