@@ -13,8 +13,13 @@ class CustomersController < ApplicationController
     end
   end
 
+  #def index
+    #@customers = Customer.where(user_id: current_user.id)
+  #end
+
   def index
-    @customers = Customer.where(user_id: current_user.id)
+    @q = Customer.where(user_id: current_user.id).ransack(params[:q])
+    @customers = @q.result
   end
 
   def show

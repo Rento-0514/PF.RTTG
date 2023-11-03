@@ -18,8 +18,13 @@ class ReservationRequestsController < ApplicationController
     end
   end
 
+  #def index
+    #@reservation_requests = ReservationRequest.where(user_id: current_user.id)
+  #end
+
   def index
-    @reservation_requests = ReservationRequest.where(user_id: current_user.id)
+    @q = ReservationRequest.ransack(params[:q])
+    @reservation_requests = @q.result(distinct: true).order(:day)
   end
 
   def show
