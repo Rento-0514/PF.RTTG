@@ -1,3 +1,8 @@
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont, "Name" %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit %>
+<% end %>
 <div class="index-image">
   <h1 class="text-center">顧客一覧</h1>
 
