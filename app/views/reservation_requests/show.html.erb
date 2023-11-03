@@ -9,6 +9,7 @@
 <p><strong>メモ:</strong> <%= @reservation_request.memo %></p>
 <p><strong>予約済:</strong> <%= @reservation_request.status ? "はい" : "いいえ" %></p>
 <%= link_to "編集", edit_reservation_request_path(@reservation_request) %> |
+<%= link_to '消去', @reservation_request, method: :delete, data: { confirm: '本当に消去しますか？' } %>
 <%= link_to "一覧に戻る", reservation_requests_path %>
 
 
