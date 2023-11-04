@@ -53,6 +53,8 @@ gem 'devise-i18n-views'
 
 gem 'bootstrap', '~> 5.1.1'
 gem 'jquery-rails'
+
+gem 'simple_calendar'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

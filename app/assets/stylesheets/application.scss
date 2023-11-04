@@ -12,10 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  */
  @import "bootstrap";
 
- .button-container {
+ .home-container {
     background-image: url(asset_path('lbc.jpg'));
     display: flex;
     flex-direction: column;
@@ -25,7 +26,7 @@
     height: 100vh;
   }
   
-  .button-container .btn {
+  .home-container .btn {
     margin-bottom: 25px; /* ボタン間のスペース */
   }
 
