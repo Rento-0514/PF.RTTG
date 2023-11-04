@@ -50,6 +50,7 @@
     background-size: cover;
     width: 100%;
     height: 100vh;
+    overflow-y: auto;
   }
   
 
@@ -85,7 +86,7 @@
   }
 
   .reservation-list {
-    background-image: url('arima.jpg'); /* 画像のURLは適宜修正してね */
+    background-image: url('hamanako.jpg'); /* 画像のURLは適宜修正してね */
     background-size: cover; 
     background-position: center;
     background-attachment: fixed;
@@ -96,6 +97,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    overflow-y: auto;
 }
 
   .new-resevation {
