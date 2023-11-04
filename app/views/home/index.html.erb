@@ -1,13 +1,17 @@
 <div class="home-container">
-  <%= link_to "お客様登録", new_customer_path, class: "btn btn-warning btn-lg" %>
-  <%= link_to "お客様一覧", customers_path, class: "btn btn-warning btn-lg" %>
-  <%= link_to "予約作成", new_reservation_request_path, class: "btn btn-warning btn-lg" %>
-  <%= link_to "予約一覧", reservation_requests_path, class: "btn btn-warning btn-lg" %>
-</div>
+  <div class="button-container">
+    <%= link_to "お客様登録", new_customer_path, class: "btn btn-warning btn-lg" %>
+    <%= link_to "お客様一覧", customers_path, class: "btn btn-warning btn-lg" %>
+    <%= link_to "予約作成", new_reservation_request_path, class: "btn btn-warning btn-lg" %>
+    <%= link_to "予約一覧", reservation_requests_path, class: "btn btn-warning btn-lg" %>
+  </div>
 
-<%= month_calendar do |date| %>
-  <%= date %>
-  <% ReservationRequest.where(day: date).each do |reservation| %>
-    <%= link_to reservation.customer.name, reservation %>
-  <% end %>
-<% end %>
+  <div class="calendar-container">
+    <%= month_calendar do |date| %>
+      <%= date %>
+      <% ReservationRequest.where(day: date).each do |reservation| %>
+        <%= link_to reservation.customer.name, reservation, class: "reservation-link" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
