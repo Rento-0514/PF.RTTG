@@ -1,8 +1,10 @@
 class NotificationsController < ApplicationController
-    def index
-      @notifications = current_user.notifications
-    end
 
+    def index
+        # すべての通知を取得
+        @notifications = current_user.notifications
+      end
+    
     def destroy
         notification = current_user.notifications.find(params[:id])
         notification.destroy
