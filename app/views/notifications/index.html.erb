@@ -3,7 +3,9 @@
 <ul>
   <% @notifications.each do |notification| %>
     <li>
-      <%= notification.reservation_request.memo %>
+      <%= link_to notification.reservation_request.customer.name, reservation_request_path(notification.reservation_request) %>
+      <p>利用日です</p>
+      <p><%= l(notification.created_at, format: :short) %> に通知されました</p>
       <%= button_to '削除', notification_path(notification), method: :delete, data: { confirm: '本当に削除しますか？' } %>
     </li>
   <% end %>
