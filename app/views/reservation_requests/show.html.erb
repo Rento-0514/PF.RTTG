@@ -8,9 +8,9 @@
   <p><strong>食事:</strong> <%= @reservation_request.food %></p>
   <p><strong>コース:</strong> <%= @reservation_request.course %></p>
   <p><strong>メモ:</strong> <%= @reservation_request.memo %></p>
-  <p><strong>予約済:</strong> <%= @reservation_request.status ? "はい" : "いいえ" %></p>
+  <p><strong>予約:</strong> <%= @reservation_request.status ? "確定" : "未確定" %></p>
   <%= link_to "編集", edit_reservation_request_path(@reservation_request) %> |
-  <%= link_to "一覧に戻る", reservation_requests_path %>
+  <%= link_to "予約一覧", reservation_requests_path %>
 </div>
 
 
