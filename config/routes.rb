@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   #http://localhost:3000でこれが表示
   resources :customers
   resources :reservation_requests
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index, :destroy]
 end

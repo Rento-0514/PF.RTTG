@@ -2,6 +2,9 @@
 
 <ul>
   <% @notifications.each do |notification| %>
-    <li><%= notification.reservation_request.memo %></li>
+    <li>
+      <%= notification.reservation_request.memo %>
+      <%= button_to '削除', notification_path(notification), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    </li>
   <% end %>
 </ul>
