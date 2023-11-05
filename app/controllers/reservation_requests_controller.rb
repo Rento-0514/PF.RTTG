@@ -49,7 +49,7 @@ class ReservationRequestsController < ApplicationController
   def destroy
     @reservation_request = ReservationRequest.find(params[:id])
     @reservation_request.destroy
-    redirect_to reservation_requests, status: :see_other, notice: "予約を削除しました"
+    redirect_to reservation_requests, notice: "予約を削除しました", status: :see_other
   end
 
   private

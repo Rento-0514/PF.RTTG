@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :reservation_requests
   has_many :customers
   has_one :customer
+  has_many :notifications
 end
