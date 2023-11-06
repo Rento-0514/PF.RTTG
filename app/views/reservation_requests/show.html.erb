@@ -1,5 +1,6 @@
-<div class="new-reservation">
-  <h1>予約詳細</h1>
+<div class="reservation_show">
+<div>
+  <h1 class="mb-4">予約詳細</h1>
   <p><strong>日程:</strong> <%= @reservation_request.day %></p>
   <p><strong>顧客名:</strong> <%= @reservation_request.customer.name %></p>
   <p><strong>ホテル:</strong> <%= @reservation_request.hotel.name %></p>
@@ -9,9 +10,8 @@
   <p><strong>コース:</strong> <%= @reservation_request.course %></p>
   <p><strong>メモ:</strong> <%= @reservation_request.memo %></p>
   <p><strong>予約:</strong> <%= @reservation_request.status ? "確定" : "未確定" %></p>
-  <%= link_to "編集", edit_reservation_request_path(@reservation_request) %> |
-  <%= link_to "予約一覧", reservation_requests_path %>
+  </div>
+  <%= link_to "編集", edit_reservation_request_path(@reservation_request), class: "btn btn-light" %> |
+  <%= link_to "予約一覧", reservation_requests_path, class: "btn btn-light" %>
 </div>
-
-
 

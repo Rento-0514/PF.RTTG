@@ -130,3 +130,52 @@
     width: 100%;
     height: 100vh;
   }
+
+
+  .reservation_show {
+    background-image: url('hamanako.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 左からのアラインメントをcenterに変更 */
+    justify-content: center; /* 上からのアラインメントをcenterに追加 */
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .reservation_show div {
+    background-color: rgba(255, 255, 255, 0.7);  /* 背景色を薄っすら白に設定 */
+    padding: 20px;
+    border-radius: 10px;  /* 角を丸くする */
+  }
+
+
+  .tuuti_index {
+
+    background-image: url('asiya.jpg');
+    display: flex;
+    flex-direction: column; 
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    h1 {
+      color: #333;
+    }
+    .card {
+      &:hover {
+        transform: scale(1.03);
+        transition: 0.3s;
+      }
+      .card-title {
+        color: #007bff;
+      }
+      .card-text {
+        color: #6c757d;
+      }
+      .btn-danger {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+      }
+    }
+  }
