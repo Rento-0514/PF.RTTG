@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_233040) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_06_090249) do
   create_table "customers", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -19,12 +19,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_233040) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "membership"
+    t.text "company"
   end
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "reservation_request_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "notification_type"
+    t.index ["reservation_request_id"], name: "index_notifications_on_reservation_request_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "reservation_requests", force: :cascade do |t|
@@ -60,6 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_233040) do
   end
 
   add_foreign_key "customers", "users"
+  add_foreign_key "notifications", "reservation_requests"
+  add_foreign_key "notifications", "users"
   add_foreign_key "reservation_requests", "customers"
   add_foreign_key "reservation_requests", "hotels"
   add_foreign_key "reservation_requests", "users"

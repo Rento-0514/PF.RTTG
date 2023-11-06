@@ -5,6 +5,8 @@
   <div class="card mx-auto" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"><%= @customer.name %></h5>
+      <p class="card-text">会員権: <%= @customer.membership %></p>
+      <p class="card-text">会社: <%= @customer.company %></p>
       <p class="card-text">誕生日: <%= @customer.birthday %></p>
       <p class="card-text">アレルギー: <%= @customer.allergy %></p>
       <p class="card-text">メモ: <%= @customer.memo %></p>

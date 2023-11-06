@@ -1,0 +1,21 @@
+<div class="tuuti_index py-5">
+  <h1 class="text-center mb-5">通知一覧</h1>
+  <div class="row">
+    <% @notifications.each do |notification| %>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to notification.reservation_request.customer.name, reservation_request_path(notification.reservation_request) %></h5>
+            <% if notification.normal? %>
+              <p class="card-text">利用日です</p>
+            <% elsif notification.three_weeks_later? %>
+              <p class="card-text">予約忘れていませんか？</p>
+            <% end %>
+            <p class="card-text"><small class="text-muted"><%= l(notification.created_at, format: :short) %> に通知されました</small></p>
+            <%= button_to '削除', notification_path(notification), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

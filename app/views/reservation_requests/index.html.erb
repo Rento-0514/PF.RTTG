@@ -20,7 +20,7 @@
               <%= "ホテル: #{request.hotel.name}" %><br>
               <%= link_to "詳細", reservation_request_path(request), class: 'btn btn-primary' %>
               <%= link_to "編集", edit_reservation_request_path(request), class: 'btn btn-secondary' %>
-              <%= link_to "消去", reservation_request_path(request), method: :delete, data: { turbo_confirm: "本当にこの予約リクエストを削除しますか?" }, class: 'btn btn-danger' %>
+              <%= button_to "消去", reservation_request_path(request), method: :delete, data: { confirm: "本当にこの予約リクエストを削除しますか?" }, class: 'btn btn-danger' %>
             </div>
           </div>
         <% end %>
@@ -38,7 +38,7 @@
               <%= "ホテル: #{request.hotel.name}" %><br>
               <%= link_to "詳細", reservation_request_path(request), class: 'btn btn-primary' %>
               <%= link_to "編集", edit_reservation_request_path(request), class: 'btn btn-secondary' %>
-              <%= link_to "消去", reservation_request_path(request), data: { turbo_method: :delete, turbo_confirm: "本当にこの予約リクエストを削除しますか?" }, class: 'btn btn-danger' %>
+              <%= button_to "消去", reservation_request_path(request), method: :delete, data: { confirm: "本当にこの予約リクエストを削除しますか?" }, class: 'btn btn-danger' %>
             </div>
           </div>
         <% end %>
