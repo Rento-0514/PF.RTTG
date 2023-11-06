@@ -8,8 +8,6 @@
         <p>利用日です</p>
       <% elsif notification.three_weeks_later? %>
         <p>予約忘れていませんか？</p>
-        <% else %>
-  <p>未知の通知タイプ</p>
       <% end %>
       <p><%= l(notification.created_at, format: :short) %> に通知されました</p>
       <%= button_to '削除', notification_path(notification), method: :delete, data: { confirm: '本当に削除しますか？' } %>

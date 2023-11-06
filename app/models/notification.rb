@@ -4,11 +4,7 @@ class Notification < ApplicationRecord
 
   after_create :broadcast_to_user
 
-  enum notification_type: {
-    normal: 'normal',
-    three_weeks_ago: 'three_weeks_ago',
-    three_weeks_later: 'three_weeks_later'
-  }
+  enum notification_type: { normal: 'normal', three_weeks_later: 'three_weeks_later' }
 
   scope :normal_notifications, -> { where(notification_type: 'normal') }
 
