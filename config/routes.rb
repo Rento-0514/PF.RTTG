@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :customers
   resources :reservation_requests
   resources :notifications, only: [:index, :destroy]
+  get 'terms', to: 'pages#terms'
+get 'privacy', to: 'pages#privacy'
 end
