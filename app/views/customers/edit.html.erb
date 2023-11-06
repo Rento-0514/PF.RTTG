@@ -7,6 +7,16 @@
     </div>
 
     <div class="form-group">
+  <%= f.label :会員権, class: 'form-label text-uppercase font-weight-bold' %>
+  <%= f.text_field :membership, class: 'form-control form-control-lg' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :会社, class: 'form-label text-uppercase font-weight-bold' %>
+  <%= f.text_field :company, class: 'form-control form-control-lg' %>
+</div>
+
+    <div class="form-group">
       <%= f.label :誕生日, class: "form-control-label" %>
       <%= f.date_select :birthday, class: "form-control" %>
     </div>
