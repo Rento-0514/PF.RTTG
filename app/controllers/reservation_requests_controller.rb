@@ -23,7 +23,7 @@ class ReservationRequestsController < ApplicationController
   #end
 
   def index
-    @q = ReservationRequest.ransack(params[:q])
+    @q = current_user.reservation_requests.ransack(params[:q])
     @reservation_requests = @q.result(distinct: true).order(:day)
   end
 
