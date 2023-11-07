@@ -151,7 +151,6 @@
 
 
   .tuuti_index {
-
     background-image: url('asiya.jpg');
     display: flex;
     flex-direction: column; 
@@ -178,4 +177,10 @@
         border-color: #dc3545;
       }
     }
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }

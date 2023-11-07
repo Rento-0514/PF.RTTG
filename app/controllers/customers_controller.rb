@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-      
+
     if @customer.save
       redirect_to @customer
     else
@@ -13,9 +13,9 @@ class CustomersController < ApplicationController
     end
   end
 
-  #def index
-    #@customers = Customer.where(user_id: current_user.id)
-  #end
+  # def index
+  # @customers = Customer.where(user_id: current_user.id)
+  # end
 
   def index
     @q = Customer.where(user_id: current_user.id).ransack(params[:q])
@@ -39,9 +39,20 @@ class CustomersController < ApplicationController
     end
   end
 
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
+
+    respond_to do |format|
+      format.html { redirect_to customers_path, notice: 'お客様情報を削除しました', status: :see_other }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :membership, :company, :birthday, :allergy, :memo).merge(user_id: current_user.id)
+    params.require(:customer).permit(:name, :membership, :company, :birthday, :allergy,
+                                     :memo).merge(user_id: current_user.id)
   end
 end
