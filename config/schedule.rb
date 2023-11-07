@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.day, at: '0:00 am' do
-    runner 'NotificationJob.perform_later'
+  runner 'NotificationJob.perform_later'
 end

@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-      
+
     if @customer.save
       redirect_to @customer
     else
@@ -13,9 +13,9 @@ class CustomersController < ApplicationController
     end
   end
 
-  #def index
-    #@customers = Customer.where(user_id: current_user.id)
-  #end
+  # def index
+  # @customers = Customer.where(user_id: current_user.id)
+  # end
 
   def index
     @q = Customer.where(user_id: current_user.id).ransack(params[:q])
@@ -42,6 +42,7 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :membership, :company, :birthday, :allergy, :memo).merge(user_id: current_user.id)
+    params.require(:customer).permit(:name, :membership, :company, :birthday, :allergy,
+                                     :memo).merge(user_id: current_user.id)
   end
 end

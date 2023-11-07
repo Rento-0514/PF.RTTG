@@ -13,14 +13,14 @@ class ReservationRequestsController < ApplicationController
       redirect_to @reservation_request
     else
       Rails.logger.error(@reservation_request.errors.full_messages)
-      flash.now[:error] = "予約リクエストを作成できませんでした。エラーが発生しました。"
+      flash.now[:error] = '予約リクエストを作成できませんでした。エラーが発生しました。'
       render :new
     end
   end
 
-  #def index
-    #@reservation_requests = ReservationRequest.where(user_id: current_user.id)
-  #end
+  # def index
+  # @reservation_requests = ReservationRequest.where(user_id: current_user.id)
+  # end
 
   def index
     @q = current_user.reservation_requests.ransack(params[:q])
@@ -43,15 +43,15 @@ class ReservationRequestsController < ApplicationController
       redirect_to @reservation_request
     else
       render :edit
-    end     
+    end
   end
 
   def destroy
     @reservation_request = ReservationRequest.find(params[:id])
     @reservation_request.destroy
-  
+
     respond_to do |format|
-      format.html { redirect_to reservation_requests_path, notice: "予約を削除しました", status: :see_other }
+      format.html { redirect_to reservation_requests_path, notice: '予約を削除しました', status: :see_other }
       format.json { head :no_content }
     end
   end
@@ -59,6 +59,7 @@ class ReservationRequestsController < ApplicationController
   private
 
   def reservation_request_params
-    params.require(:reservation_request).permit(:day, :number_of_people, :is_smoking, :food, :course, :memo, :status, :customer_id, :hotel_id).merge(user_id: current_user.id)
+    params.require(:reservation_request).permit(:day, :number_of_people, :is_smoking, :food, :course, :memo, :status,
+                                                :customer_id, :hotel_id).merge(user_id: current_user.id)
   end
 end

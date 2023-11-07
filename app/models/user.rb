@@ -11,12 +11,13 @@ class User < ApplicationRecord
   def today_notifications
     # 当日の通知を取得
     today = Date.today
-    notifications.normal_notifications.where("created_at >= ? AND created_at <= ?", today.beginning_of_day, today.end_of_day)
+    notifications.normal_notifications.where('created_at >= ? AND created_at <= ?', today.beginning_of_day,
+                                             today.end_of_day)
   end
 
   def three_weeks_later_notifications
     # 3週間後の通知を取得
     three_weeks_later_date = 3.weeks.from_now.to_date
-    notifications.three_weeks_later.where("created_at >= ?", three_weeks_later_date.beginning_of_day)
+    notifications.three_weeks_later.where('created_at >= ?', three_weeks_later_date.beginning_of_day)
   end
 end
