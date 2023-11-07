@@ -63,20 +63,20 @@ RTTG予約管理は私が働いているリゾートトラスト株式会社の�
 
 ## 実装を予定している機能
 ### MVP
-⭕️* 会員登録 devise
-⭕️* ログイン devise
-⭕️* 予約一覧　（Hotwire）
-⭕️* 予約登録　（Hotwire）
-⭕️* 予約詳細　（Hotwire）
-⭕️* 利用日の通知機能  WebSocket通信・ActionCable（Rails標準）
-⭕️* 未確定の予約にについて、予約可能なタイミングでの通知機能（3週間前）
-⭕️* 未確定予約一覧表示（Hotwire）
-⭕️* カレンダーで予約を一覧表示（Hotwire）
+* 会員登録 devise
+* ログイン devise
+* 予約一覧　（Hotwire）
+* 予約登録　（Hotwire）
+* 予約詳細　（Hotwire）
+* 利用日の通知機能  WebSocket通信・ActionCable（Rails標準）
+* 未確定の予約にについて、予約可能なタイミングでの通知機能（3週間前）
+* 未確定予約一覧表示（Hotwire）
+* カレンダーで予約を一覧表示（Hotwire）
 
 ### その後の機能
 * 予約件数の合計表示
-⭕️* お客様の情報登録機能 （Hotwire）
-⭕️* お客様の検索機能　Stimulus Autocomplete（Rails7）
+* お客様の情報登録機能 （Hotwire）
+* お客様の検索機能　Stimulus Autocomplete（Rails7）
 * お客様の登録した誕生日の1週間前に通知機能
 * 自身の営業成績をグラフ化　Chartkick
 
