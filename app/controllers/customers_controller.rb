@@ -39,6 +39,16 @@ class CustomersController < ApplicationController
     end
   end
 
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
+
+    respond_to do |format|
+      format.html { redirect_to customers_path, notice: 'お客様情報を削除しました', status: :see_other }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def customer_params
