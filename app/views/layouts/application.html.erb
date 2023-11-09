@@ -5,18 +5,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <!-- BootstrapのCSSを追加 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+      @media (max-width: 767px) {
+        .navbar-collapse {
+          text-align: center; /* テキストを中央寄せにする */
+        }
+        .navbar-nav {
+          flex-direction: column; /* ナビゲーションリンクを縦並びにする */
+        }
+        .navbar-nav .nav-item {
+          margin: 5px 0; /* ナビゲーションリンク間のスペースを追加 */
+        }
+      }
+      .footer {
+        position: relative; /* 固定ポジションを解除 */
+        width: 100%;
+        background-color: #333; /* フッターの背景色を設定 */
+        color: #fff; /* フッターテキストの色を設定 */
+        text-align: center; /* テキストを中央寄せに設定 */
+        padding: 20px 0; /* 上下のパディングを設定 */
+      }
+    </style>
   </head>
-
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- 背景色を紺色に -->
       <%= link_to "RTTG", root_path, class: "navbar-brand" %>
-
-      <div class="collapse navbar-collapse">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto"> <!-- リンクを右側に表示 -->
           <% if user_signed_in? %>
             <li class="nav-item">
@@ -33,18 +54,15 @@
         </ul>
       </div>
     </nav>
-
     <%= yield %>
-
-  <footer class="footer fixed-bottom py-3 bg-dark">
-  <div class="container">
-    <div class="d-flex justify-content-end">
-      <%= link_to '利用規約', terms_path, class: 'text-light' %>
-      <span class="mx-3 text-light">|</span>
-      <%= link_to 'プライバシーポリシー', privacy_path, class: 'text-light' %>
-    </div>
-  </div>
-</footer>
-</body>
+    <footer class="footer fixed-bottom py-3 bg-dark">
+      <div class="container">
+        <div class="d-flex justify-content-end">
+          <%= link_to '利用規約', terms_path, class: 'text-light' %>
+          <span class="mx-3 text-light">|</span>
+          <%= link_to 'プライバシーポリシー', privacy_path, class: 'text-light' %>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
