@@ -180,7 +180,10 @@
   }
 
   .footer {
-    position: fixed;
-    bottom: 0;
+    position: relative; /* 固定ポジションを解除 */
     width: 100%;
+    background-color: #333; /* フッターの背景色を設定 */
+    color: #fff; /* フッターテキストの色を設定 */
+    text-align: center; /* テキストを中央寄せに設定 */
+    padding: 20px 0; /* 上下のパディングを設定 */
   }
