@@ -65,7 +65,7 @@ RTTG予約管理は私が働いているリゾートトラスト株式会社の�
 ### MVP
 * 会員登録 devise
 * ログイン devise
-* 予約一覧　（Hotwire）
+* 予約一覧　 （Hotwire）
 * 予約登録　（Hotwire）
 * 予約詳細　（Hotwire）
 * 利用日の通知機能  WebSocket通信・ActionCable（Rails標準）
