@@ -9,6 +9,7 @@ class ReservationRequestsController < ApplicationController
     @reservation_request = ReservationRequest.new(reservation_request_params)
     @reservation_request.customer_id = params[:reservation_request][:customer_id]
     @reservation_request.hotel_id = params[:reservation_request][:hotel_id]
+    @customers = current_user.customers
     if @reservation_request.save
       redirect_to @reservation_request
     else
