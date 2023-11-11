@@ -216,7 +216,9 @@
     margin-top: 20px;
     width: 100%; /* 画面幅いっぱいに広げる */
     text-align: center; /* カレンダーを中央揃え */
-    padding: 0px; /* 余白を設定 */
+    max-width: 100%;
+    box-sizing: border-box; /* パディングとボーダーを幅に含める */
+    overflow-x: auto; /* 横スクロールを許可する */
   }
 }
 
