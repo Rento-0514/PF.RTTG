@@ -225,19 +225,21 @@
 /* スマホのヘッダーフッター */
 @media (max-width: 767px) {
   .navbar-collapse {
-    text-align: center; /* テキストを中央寄せにする */
+    text-align: center;
+    display: block; /* 常に表示させる */
   }
 
-  .navbar-nav {
-    flex-direction: column; /* ナビゲーションリンクを縦並びにする */
+  .navbar-toggler {
+    display: none; /* ハンバーガーメニューを非表示にする */
   }
+
 
   .navbar-nav .nav-item {
-    margin: 5px 0; /* ナビゲーションリンク間のスペースを追加 */
+    margin: 5px 0;
   }
 
   .footer {
-    text-align: center; /* テキストを中央寄せにする */
+    text-align: center;
   }
 }
 
