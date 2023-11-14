@@ -9,14 +9,15 @@
   <div class="container">
     <div class="d-flex flex-column align-items-center">
       <% @customers.each do |customer| %>
-        <div class="my-2">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-body">
-              <%= link_to customer.name, customer_path(customer), class: "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <div class="my-2">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <%= link_to customer.name, customer_path(customer), class: "btn btn-primary" %>
+        <p>会社名: <%= customer.company %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
       <%= link_to "お客様登録", new_customer_path, class: "btn btn-warning btn-light my-2" %>
     </div>
   </div>
