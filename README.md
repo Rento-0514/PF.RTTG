@@ -62,7 +62,6 @@ RTTG予約管理は私が働いているリゾートトラスト株式会社の�
 
 
 ## 実装を予定している機能
-### MVP
 * 会員登録 devise
 * ログイン devise
 * 予約一覧　 （Hotwire）
@@ -74,9 +73,7 @@ RTTG予約管理は私が働いているリゾートトラスト株式会社の�
 * カレンダーで予約を一覧表示（Hotwire）
 * お客様の検索機能　ransack
 * お客様の情報登録機能 （Hotwire）
-
-### その後の機能
-* お客様一覧には会社名も表示し会社名でも検索できるように
+* お客様一覧には会社名も表示
 
 画面遷移図　
 figma https://www.figma.com/file/Vw58QAmeeH0yrqRf4VDq6x/RTTG?type=design&node-id=0-1&mode=design&t=QE0JhxVR6D1rQS9C-0
