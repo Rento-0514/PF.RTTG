@@ -309,7 +309,11 @@
   /* padding-bottom: 50px; 画面下部にスペースを追加する場合は必要 */
 }
 
-.new- .form-group {
+.bold-text {
+  font-weight: bold;
+}
+
+.new-acount .form-group {
   justify-content: flex-start; /* フォーム内の要素を上部から配置 */
   margin-bottom: 10px;
 }
