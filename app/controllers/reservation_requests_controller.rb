@@ -30,9 +30,9 @@ class ReservationRequestsController < ApplicationController
         render json: @reservation_requests.map { |reservation_request|
           {
             id: reservation_request.id,
-            title: "#{reservation_request.customer.name} - #{reservation_request.customer.name}",
+            title: "#{reservation_request.customer.name}",
             start: reservation_request.day,
-            color: reservation_request.status ? 'green' : 'red', # statusがtrueなら緑、falseなら赤
+            color: reservation_request.status ? 'red' : 'blue', # statusがtrueなら緑、falseなら赤
             url: reservation_request_path(reservation_request) # 詳細ページへのURLを追加
           }
         }
