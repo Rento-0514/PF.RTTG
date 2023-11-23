@@ -23,6 +23,21 @@ class ReservationRequestsController < ApplicationController
   def index
     @q = current_user.reservation_requests.ransack(params[:q])
     @reservation_requests = @q.result(distinct: true).order(:day)
+  
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: @reservation_requests.map { |reservation_request|
+          {
+            id: reservation_request.id,
+            title: "#{reservation_request.customer.name} - #{reservation_request.customer.name}",
+            start: reservation_request.day,
+            color: reservation_request.status ? 'green' : 'red', # statusがtrueなら緑、falseなら赤
+            url: reservation_request_path(reservation_request) # 詳細ページへのURLを追加
+          }
+        }
+      }
+    end
   end
 
   def show

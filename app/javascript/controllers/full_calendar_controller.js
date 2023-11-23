@@ -1,15 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
-import { Calendar } from "@fullcalendar/core"
-import dayGridPlugin from "@fullcalendar/daygrid"
-import interactionPlugin from "@fullcalendar/interaction"
-import listPlugin from "@fullcalendar/list"
-import timeGridPlugin from "@fullcalendar/timegrid"
-
-
-
-// フルカレンダーのCSSをインポートする必要がある場合は、以下のように追加する
-// import "@fullcalendar/core/main.css"
-// import "@fullcalendar/daygrid/main.css"
+import { Calendar } from '@fullcalendar/core'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from '@fullcalendar/interaction'
+import listPlugin from '@fullcalendar/list'
+import timeGridPlugin from '@fullcalendar/timegrid'
 
 export default class extends Controller {
   connect() {
@@ -17,7 +11,10 @@ export default class extends Controller {
     var calendar = new Calendar(calendarEl, {
       plugins: [ dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin ],
       initialView: 'dayGridMonth',
-      // ここにイベントデータを取得するロジックなどを追加
+      eventClick: function(info) {
+        window.location.href = info.event.url; // URLに遷移する
+      },
+      events: '/reservation_requests.json' // サーバーからイベントデータを取得する
     })
     calendar.render()
   }
