@@ -19,9 +19,6 @@ class ReservationRequestsController < ApplicationController
     end
   end
 
-  # def index
-  # @reservation_requests = ReservationRequest.where(user_id: current_user.id)
-  # end
 
   def index
     @q = current_user.reservation_requests.ransack(params[:q])

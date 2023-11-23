@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require simple_calendar
+
  */
 @import "bootstrap";
+
 
  .home-container {
   background-image: url(asset_path('lbc.jpg'));
