@@ -11,6 +11,10 @@ export default class extends Controller {
     var calendar = new Calendar(calendarEl, {
       plugins: [ dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin ],
       initialView: 'dayGridMonth',
+      dateClick: function(info) {
+        // ここで予約作成画面へのパスを指定する
+        window.location.href = '/reservation_requests/new?date=' + info.dateStr; 
+      },
       eventClick: function(info) {
         window.location.href = info.event.url; // URLに遷移する
       },
