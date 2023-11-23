@@ -7,17 +7,6 @@
     <%= link_to '通知一覧', notifications_path, class: "btn btn-warning btn-lg" %>
   </div>
 
-  <div class="calendar-container">
-  <%= month_calendar do |date| %>
-    <%= date %>
-    <% if current_user.present? %>
-      <% current_user_reservations = current_user.reservation_requests.where(day: date) %>
-      <% if current_user_reservations.any? %>
-        <% current_user_reservations.each do |reservation| %>
-          <%= link_to reservation.customer.name, reservation, class: "reservation-link" %>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+<div data-controller="full-calendar" id="calendar" class="calendar-container"></div>
+
 </div>

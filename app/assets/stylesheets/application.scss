@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require simple_calendar
+
  */
 @import "bootstrap";
+
 
  .home-container {
   background-image: url(asset_path('lbc.jpg'));
@@ -39,6 +40,8 @@
   margin-left: 180px;  /* 左からの距離 */
   margin-top: 100px;   /* 上からの距離 */
   background-color: rgba(84, 209, 251, 0.5); /* 背景色を薄っすら水色に */
+  width: 900px;       /* 幅を1000pxに設定 */
+  height: 650px;       /* 高さを650pxに設定 */
 }
 
 .reservation-link {
