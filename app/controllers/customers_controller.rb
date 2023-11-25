@@ -22,6 +22,12 @@ class CustomersController < ApplicationController
     @customers = @q.result
   end
 
+  def search
+    @q = Customer.ransack(name_cont: params[:q])
+    @customers = @q.result(distinct: true).limit(5)
+    render json: @customers.as_json(only: [:id, :name]) # 必要な属性だけを含むようにする
+  end
+
   def show
     @customer = Customer.find(params[:id])
   end
