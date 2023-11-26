@@ -1,6 +1,7 @@
-<%= search_form_for @q do |f| %>
+<%= search_form_for @q, data: { controller: "autocomplete" } do |f| %>
   <%= f.label :name_cont, "お客様名" %>
-  <%= f.search_field :name_cont %>
+  <%= f.search_field :name_cont, data: { autocomplete_target: "input", action: "input->autocomplete#search" } %>
+  <ul data-autocomplete-target="list"></ul>
   <%= f.submit %>
 <% end %>
 <div class="index-image">
