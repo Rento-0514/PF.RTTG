@@ -22,6 +22,7 @@
                         <th scope="col">喫煙</th>
                         <th scope="col">食事</th>
                         <th scope="col">コース</th>
+                         <th scope="col">予約番号</th> 
                         <th scope="col">メモ</th>
                         <th scope="col">予約</th>
                       </tr>
@@ -36,8 +37,9 @@
       <td><%= reservation_request.is_smoking ? '喫煙' : '禁煙' %></td>
       <td><%= reservation_request.food %></td>
       <td><%= reservation_request.course %></td>
+      <td><%= reservation_request.reservation_number %></td>
       <td><%= reservation_request.memo %></td>
-      <td><%= reservation_request.status ? reservation_request.reservation_number : '未確定' %></td>
+      <td><%= reservation_request.status ? '確定' : '未確定' %></td>
     </tr>
   <% end %>
                     </tbody>
