@@ -16,6 +16,27 @@
  */
 @import "bootstrap";
 
+body {
+  background-image: url('sact.jpg');
+  background-size: cover; /* 全画面に画像をフィットさせる */
+  background-repeat: no-repeat; /* 画像の繰り返しを防ぐ */
+  background-position: center center; /* 画像を中央に配置 */
+}
+
+.form-group {
+  margin-bottom: 30px; /* 20pxは例えばで、お好みの間隔に調整して */
+}
+
+
+
+
+
+
+
+
+
+
+
 
  .home-container {
   background-image: url(asset_path('lbc.jpg'));
@@ -86,7 +107,7 @@
   
 
   .show-image {
-    background-image: url('onsen.jpg'); /* 画像のURLは適宜修正してください */
+    
     display: flex;
     background-attachment: fixed;
     flex-direction: column;
@@ -144,7 +165,7 @@
 
 
   .reservation_show {
-    background-image: url('hamanako.jpg');
+    
     display: flex;
     flex-direction: column;
     align-items: center; /* 左からのアラインメントをcenterに変更 */
