@@ -32,7 +32,7 @@ class ReservationRequestsController < ApplicationController
             id: reservation_request.id,
             title: "#{reservation_request.customer.name}",
             start: reservation_request.day,
-            color: reservation_request.status ? 'red' : 'blue', # statusがtrueなら緑、falseなら赤
+            color: reservation_request.status ? 'blue' : 'red', # statusがtrueなら緑、falseなら赤
             url: reservation_request_path(reservation_request) # 詳細ページへのURLを追加
           }
         }
@@ -73,6 +73,6 @@ class ReservationRequestsController < ApplicationController
 
   def reservation_request_params
     params.require(:reservation_request).permit(:day, :number_of_people, :is_smoking, :food, :course, :memo, :status,
-                                                :customer_id, :hotel_id).merge(user_id: current_user.id)
+                                                :customer_id, :hotel_id, :reservation_number).merge(user_id: current_user.id)
   end
 end

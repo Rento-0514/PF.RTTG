@@ -1,40 +1,54 @@
-<div class="container edit-image">
-  <h1 class="text-center">お客様情報編集</h1>
-  <%= form_for @customer, html: { class: "mx-auto", style: "width: 18rem;" } do |f| %>
-    <div class="form-group">
-      <%= f.label :名前, class: "form-control-label" %>
-      <%= f.text_field :name, class: "form-control" %>
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+      <h3>お客様情報編集</h3>
+
+      <div class="card">
+        <%= form_with(model: @customer, local: true, html: { class: 'form-card' }) do |form| %>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-12 flex-column d-flex">
+              <%= form.label :名前, class: 'form-control-label px-3' %>
+              <%= form.text_field :name, class: 'form-control', placeholder: 'お客様名' %>
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <%= form.label :会員権, class: 'form-control-label px-3' %>
+              <%= form.text_field :membership, class: 'form-control', placeholder: '会員権' %>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <%= form.label :会社名, class: 'form-control-label px-3' %>
+              <%= form.text_field :company, class: 'form-control', placeholder: '会社名' %>
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <%= form.label :誕生日, class: 'form-control-label px-3' %>
+              <%= form.date_field :birthday, class: 'form-control', placeholder: 'Enter your birthday' %>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <%= form.label :アレルギー, class: 'form-control-label px-3' %>
+              <%= form.text_area :allergy, class: 'form-control', placeholder: 'アレルギー' %>
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-12 flex-column d-flex">
+              <%= form.label :メモ, class: 'form-control-label px-3' %>
+              <%= form.text_area :memo, class: 'form-control', placeholder: 'メモ' %>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-end">
+            <div class="form-group col-sm-6">
+              <%= form.submit '更新', class: 'btn btn-primary' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <div class="form-group">
-  <%= f.label :会員権, class: 'form-label text-uppercase font-weight-bold' %>
-  <%= f.text_field :membership, class: 'form-control form-control-lg' %>
-</div>
-
-<div class="form-group">
-  <%= f.label :会社, class: 'form-label text-uppercase font-weight-bold' %>
-  <%= f.text_field :company, class: 'form-control form-control-lg' %>
-</div>
-
-    <div class="form-group">
-      <%= f.label :誕生日, class: "form-control-label" %>
-      <%= f.date_select :birthday, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :アレルギー, class: "form-control-label" %>
-      <%= f.text_field :allergy, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :メモ, class: "form-control-label" %>
-      <%= f.text_area :memo, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.submit "更新", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-
-  <%= link_to "戻る", customer_path(@customer), class: "btn btn-secondary" %>
+  </div>
 </div>

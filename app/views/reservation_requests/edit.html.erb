@@ -1,51 +1,68 @@
-<div class="new-resevation">
-  <h1>予約編集</h1> 
-  <%= form_for @reservation_request do |f| %> 
-    <div class="field">
-      <%= f.label :日程 %> 
-      <%= f.date_field :day %> 
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+      <h3>予約編集</h3>
+
+      <div class="card">
+        <%= form_with(model: @reservation_request, local: true) do |form| %>
+
+        <div class="form-group">
+    <%= form.label :customer_id, '顧客' %>
+    <%= form.collection_select(:customer_id, Customer.all, :id, :name, { include_blank: '選択してください' }, { class: 'form-control' }) %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :hotel_id, 'ホテル' %>
+    <%= form.collection_select(:hotel_id, Hotel.all, :id, :name, { include_blank: '選択してください' }, { class: 'form-control' }) %>
+  </div>
+  
+  
+  <div class="form-group">
+    <%= form.label :day, '日付' %>
+    <%= form.date_field :day, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :number_of_people, '人数' %>
+    <%= form.number_field :number_of_people, class: 'form-control' %>
+  </div>
+  
+  
+  
+  <div class="form-group">
+    <%= form.label :food, '食事' %>
+    <%= form.text_field :food, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :course, 'コース' %>
+    <%= form.text_field :course, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :memo, 'メモ' %>
+    <%= form.text_area :memo, class: 'form-control' %>
+  </div>
+  
+  
+  <div class="form-group">
+    <%= form.label :reservation_number, '予約番号' %>
+    <%= form.number_field :reservation_number, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :is_smoking, '喫煙' %>
+    <%= form.check_box :is_smoking %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status, '予約済' %>
+    <%= form.check_box :status %>
+  </div>
+  
+  <%= form.submit '登録', class: 'btn btn-primary' %>
+<% end %>
+      </div>
     </div>
-   
-  <%= f.label :顧客名 %> 
-<%= f.collection_select :customer_id, @customers, :id, :name %>
-
-<%= f.label :ホテル %> 
-<%= f.collection_select :hotel_id, @hotels, :id, :name %>
-
-<div class="field"> 
-  <%= f.label :人数 %> 
-  <%= f.number_field :number_of_people %> 
-</div>
-
-<div class="field"> 
-  <%= f.label :喫煙 %> 
-  <%= f.check_box :is_smoking %> 
-</div>
-
-<div class="field"> 
-  <%= f.label :食事 %> 
-  <%= f.text_field :food %> 
-</div>
-
-<div class="field"> 
-  <%= f.label :コース %> 
-  <%= f.text_field :course %> 
-</div>
-
-<div class="field"> 
-  <%= f.label :メモ %> 
-  <%= f.text_area :memo %> 
-</div>
-
-<div class="field"> 
-  <%= f.label :予約済 %> 
-  <%= f.check_box :status %> 
-</div>
-
-  <div class="actions"> 
-    <%= f.submit "登録" %> 
-  </div> 
-
-  <% end %> 
-<%= link_to "予約一覧", reservation_requests_path, class: 'btn btn-primary' %>
+  </div>
 </div>

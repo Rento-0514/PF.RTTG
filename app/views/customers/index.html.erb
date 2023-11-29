@@ -1,25 +1,51 @@
-<%= search_form_for @q, data: { controller: "autocomplete" } do |f| %>
+<section class="intro">
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+        <%= search_form_for @q, data: { controller: "autocomplete" } do |f| %>
   <%= f.label :name_cont, "お客様名" %>
-  <%= f.search_field :name_cont, data: { autocomplete_target: "input", action: "input->autocomplete#search" } %>
+  <%= f.search_field :name_cont, data: { autocomplete_target: "input", action: "input->autocomplete#search" } %><%= f.submit %>
   <ul data-autocomplete-target="list"></ul>
-  <%= f.submit %>
 <% end %>
-<div class="index-image">
-  <h1 class="text-center">お客様一覧</h1>
-
-  <div class="container">
-    <div class="d-flex flex-column align-items-center">
-      <% @customers.each do |customer| %>
-  <div class="my-2">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-body">
-        <%= link_to customer.name, customer_path(customer), class: "btn btn-primary" %>
-        <p>会社名: <%= customer.company %></p>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                  <table class="table table-striped mb-0">
+                    <thead style="background-color: #fff; color: #000;">
+                      <tr>
+                        <th scope="col">名前</th>
+                        <th scope="col">会社</th>
+                        <th scope="col">会員権</th>
+                        <th scope="col">誕生日</th>
+                        
+                        
+                      </tr>
+                    </thead>
+        <tbody>
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= link_to customer.name, customer_path(customer) %></td>
+      <td><%= customer.company %></td>
+      <td><%= customer.membership %></td>
+      <td><%= customer.birthday.strftime('%Y/%m/%d') if customer.birthday %></td>
+      
+      
+      <td>
+        <%= link_to '編集', edit_customer_path(customer), class: 'btn btn-primary btn-sm' %> <!-- 編集ボタン -->
+      </td> 
+    </tr>
+  <% end %>
+</tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-<% end %>
-      <%= link_to "お客様登録", new_customer_path, class: "btn btn-warning btn-light my-2" %>
-    </div>
-  </div>
-</div>
+</section>
