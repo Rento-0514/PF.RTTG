@@ -17,13 +17,8 @@
                       <tr>
                         <th scope="col">日程</th>
                         <th scope="col">お客様</th>
-                        <th scope="col">ホテル</th>
-                        <th scope="col">人数</th>
-                        <th scope="col">喫煙</th>
-                        <th scope="col">食事</th>
-                        <th scope="col">コース</th>
-                         <th scope="col">予約番号</th> 
-                        <th scope="col">メモ</th>
+                        <th scope="col">ホテル</th>        
+                         <th scope="col">予約番号</th>               
                         <th scope="col">予約</th>
                       </tr>
                     </thead>
@@ -33,13 +28,13 @@
       <td><%= reservation_request.day %></td>
       <td><%= reservation_request.customer.name %></td>
       <td><%= reservation_request.hotel.name %></td>
-      <td><%= reservation_request.number_of_people %></td>
-      <td><%= reservation_request.is_smoking ? '喫煙' : '禁煙' %></td>
-      <td><%= reservation_request.food %></td>
-      <td><%= reservation_request.course %></td>
+      
+     
       <td><%= reservation_request.reservation_number %></td>
-      <td><%= reservation_request.memo %></td>
+  
       <td><%= reservation_request.status ? '確定' : '未確定' %></td>
+      <td><%= link_to "詳細", reservation_request_path(reservation_request), class: 'btn btn-primary' %></td>
+      <td><%= link_to "編集", edit_reservation_request_path(reservation_request), class: "btn btn-danger" %></td>
     </tr>
   <% end %>
                     </tbody>

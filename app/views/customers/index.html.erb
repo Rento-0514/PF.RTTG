@@ -17,10 +17,10 @@
                       <tr>
                         <th scope="col">名前</th>
                         <th scope="col">会社</th>
-                        <th scope="col">誕生日</th>
                         <th scope="col">会員権</th>
-                        <th scope="col">アレルギー</th>
-                        <th scope="col">メモ</th>
+                        <th scope="col">誕生日</th>
+                        
+                        
                       </tr>
                     </thead>
         <tbody>
@@ -28,10 +28,10 @@
     <tr>
       <td><%= link_to customer.name, customer_path(customer) %></td>
       <td><%= customer.company %></td>
-      <td><%= customer.birthday.strftime('%Y/%m/%d') if customer.birthday %></td>
       <td><%= customer.membership %></td>
-      <td><%= customer.allergy %></td>
-      <td><%= customer.memo %></td>
+      <td><%= customer.birthday.strftime('%Y/%m/%d') if customer.birthday %></td>
+      
+      
       <td>
         <%= link_to '編集', edit_customer_path(customer), class: 'btn btn-primary btn-sm' %> <!-- 編集ボタン -->
       </td> 
