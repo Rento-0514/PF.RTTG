@@ -23,20 +23,21 @@
                         <th scope="col">メモ</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <% @customers.each do |customer| %>
+        <tbody>
+  <% @customers.each do |customer| %>
     <tr>
-      <td><%= customer.name %></td>
+      <td><%= link_to customer.name, customer_path(customer) %></td>
       <td><%= customer.company %></td>
       <td><%= customer.birthday.strftime('%Y/%m/%d') if customer.birthday %></td>
       <td><%= customer.membership %></td>
       <td><%= customer.allergy %></td>
       <td><%= customer.memo %></td>
-
+      <td>
+        <%= link_to '編集', edit_customer_path(customer), class: 'btn btn-primary btn-sm' %> <!-- 編集ボタン -->
+      </td> 
     </tr>
   <% end %>
-                      
-                    </tbody>
+</tbody>
                   </table>
                 </div>
               </div>
