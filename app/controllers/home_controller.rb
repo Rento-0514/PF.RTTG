@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
-  def index # root_path
-    @notifications = current_user.notifications # または適切なデータを取得する
+  def index
+    if user_signed_in?
+      @notifications = current_user.notifications
+    else
+      @notifications = [] # ログインしていない場合は空の配列などを設定
+    end
   end
 
   def destroy
