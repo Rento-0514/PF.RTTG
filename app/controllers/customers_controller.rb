@@ -18,8 +18,8 @@ class CustomersController < ApplicationController
   # end
 
   def index
-    @q = Customer.where(user_id: current_user.id).ransack(params[:q])
-    @customers = @q.result
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true)
   end
 
   def search

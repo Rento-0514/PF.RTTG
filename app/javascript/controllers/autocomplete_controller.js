@@ -23,9 +23,13 @@ export default class extends Controller {
       }
     
 
-  search() {
-    const query = encodeURIComponent(this.inputTarget.value);
-    const url = `/customers/search?q=${query}`;
+      search() {
+        const nameQuery = encodeURIComponent(this.inputTargets[0].value);
+        const companyQuery = encodeURIComponent(this.inputTargets[1].value);
+        const url = `/customers/search?q[name_cont]=${nameQuery}&q[company_cont]=${companyQuery}`;
+      
+    
+    
   
     fetch(url)
       .then(response => {
