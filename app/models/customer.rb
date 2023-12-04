@@ -4,6 +4,6 @@ class Customer < ApplicationRecord
 
   def self.ransackable_attributes(auth_object = nil)
     # 'company' を含むようにする
-    super + %w(company)
+    super + %w[company]
   end
 end

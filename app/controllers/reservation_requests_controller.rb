@@ -19,14 +19,13 @@ class ReservationRequestsController < ApplicationController
     end
   end
 
-
   def index
     @q = current_user.reservation_requests.ransack(params[:q])
     @reservation_requests = @q.result(distinct: true).order(:day)
-  
+
     respond_to do |format|
       format.html
-      format.json {
+      format.json do
         render json: @reservation_requests.map { |reservation_request|
           {
             id: reservation_request.id,
@@ -36,7 +35,7 @@ class ReservationRequestsController < ApplicationController
             url: reservation_request_path(reservation_request) # 詳細ページへのURLを追加
           }
         }
-      }
+      end
     end
   end
 

@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-  
+
     if @customer.save
       redirect_to customers_path
     else
@@ -25,7 +25,7 @@ class CustomersController < ApplicationController
   def search
     @q = Customer.ransack(name_cont: params[:q])
     @customers = @q.result(distinct: true).limit(5)
-    render json: @customers.as_json(only: [:id, :name]) # 必要な属性だけを含むようにする
+    render json: @customers.as_json(only: %i[id name]) # 必要な属性だけを含むようにする
   end
 
   def show

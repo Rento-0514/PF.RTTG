@@ -4,11 +4,15 @@
       <div class="container">
         <div class="row justify-content-center">
         <%= search_form_for @q, data: { controller: "autocomplete" } do |f| %>
+<div>
   <%= f.label :name_cont, "お客様名" %>
   <%= f.search_field :name_cont, data: { autocomplete_target: "input", action: "input->autocomplete#search" } %>
-  <%= f.label :company_cont, "会社名" %>
-  <%= f.search_field :company_cont, data: { autocomplete_target: "input", action: "input->autocomplete#search" } %>
-  <%= f.submit %>
+</div>
+<div>
+  <%= f.label :company_cont, "会社名　" %>
+  <%= f.search_field :company_cont, data: { autocomplete_target: "input", action: "input->autocomplete#search" } %> <%= f.submit %>
+</div>
+
   <ul data-autocomplete-target="list"></ul>
 <% end %>
           <div class="col-12">
