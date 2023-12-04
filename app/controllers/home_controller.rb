@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def index
     if user_signed_in?
       @notifications = current_user.notifications if current_user
