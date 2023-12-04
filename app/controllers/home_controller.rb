@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
+before_action :authenticate_user!, only: [:index]
+
   def index
     if user_signed_in?
-      @notifications = current_user.notifications
+      @notifications = current_user.notifications if current_user
       load_notifications
     else
       @notifications = [] # ログインしていない場合は空の配列などを設定
