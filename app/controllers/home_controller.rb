@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
+before_action :authenticate_user!, only: [:index]
 
-  before_action :authenticate_user!, only: [:index]
-  
   def index
     if user_signed_in?
       @notifications = current_user.notifications if current_user
