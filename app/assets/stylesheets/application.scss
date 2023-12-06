@@ -176,7 +176,7 @@ body {
   }
 
   .reservation_show div {
-    background-color: rgba(255, 255, 255, 0.7);  /* 背景色を薄っすら白に設定 */
+    background-color: rgba(255, 255, 255, 1);  /* 背景色を薄っすら白に設定 */
     padding: 20px;
     border-radius: 10px;  /* 角を丸くする */
   }
@@ -301,3 +301,8 @@ body {
   width: 300px; /* フォームの幅を調整 */
 }
 
+
+
+.fc-daygrid-day-frame, .fc-event {
+  cursor: pointer;
+}
