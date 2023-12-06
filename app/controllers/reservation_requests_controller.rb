@@ -1,4 +1,5 @@
 class ReservationRequestsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @reservation_request = ReservationRequest.new
     @customers = current_user.customers
