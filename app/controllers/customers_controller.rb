@@ -1,5 +1,7 @@
 class CustomersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+
   def new
     @customer = Customer.new
   end
@@ -14,32 +16,24 @@ class CustomersController < ApplicationController
     end
   end
 
-  # def index
-  # @customers = Customer.where(user_id: current_user.id)
-  # end
-
   def index
     @q = current_user.customers.ransack(params[:q])
     @customers = @q.result(distinct: true)
   end
-  
 
   def search
     @q = Customer.ransack(name_cont: params[:q])
     @customers = @q.result(distinct: true).limit(5)
-    render json: @customers.as_json(only: %i[id name]) # 必要な属性だけを含むようにする
+    render json: @customers.as_json(only: %i[id name])
   end
 
   def show
-    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       redirect_to customers_path, notice: 'お客様情報を更新しました'
     else
@@ -48,7 +42,6 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
     @customer.destroy
 
     respond_to do |format|
@@ -58,6 +51,10 @@ class CustomersController < ApplicationController
   end
 
   private
+
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
 
   def customer_params
     params.require(:customer).permit(:name, :membership, :company, :birthday, :allergy,

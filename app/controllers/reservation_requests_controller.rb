@@ -1,5 +1,8 @@
 class ReservationRequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_reservation_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_customers_and_hotels, only: [:new, :edit]
+
   def new
     @reservation_request = ReservationRequest.new
     @customers = current_user.customers
@@ -39,28 +42,23 @@ class ReservationRequestsController < ApplicationController
   end
 
   def show
-    @reservation_request = ReservationRequest.find(params[:id])
   end
 
   def edit
-    @reservation_request = ReservationRequest.find(params[:id])
-    @customers = current_user.customers
-    @hotels = Hotel.all
   end
 
   def update
-    @reservation_request = ReservationRequest.find(params[:id])
     if @reservation_request.update(reservation_request_params)
       redirect_to @reservation_request
     else
+      set_customers_and_hotels
       render :edit
     end
   end
 
-  def destroy
-    @reservation_request = ReservationRequest.find(params[:id])
-    @reservation_request.destroy
 
+  def destroy
+    @reservation_request.destroy
     respond_to do |format|
       format.html { redirect_to reservation_requests_path, notice: '予約を削除しました', status: :see_other }
       format.json { head :no_content }
@@ -69,8 +67,18 @@ class ReservationRequestsController < ApplicationController
 
   private
 
+  def set_reservation_request
+    @reservation_request = ReservationRequest.find(params[:id])
+  end
+
+  def set_customers_and_hotels
+    @customers = current_user.customers
+    @hotels = Hotel.all
+  end
+
   def reservation_request_params
     params.require(:reservation_request).permit(:day, :number_of_people, :is_smoking, :food, :course, :memo, :status,
                                                 :customer_id, :hotel_id, :reservation_number)
   end
 end
+
