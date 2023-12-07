@@ -1,23 +1,25 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
   has_many :reservation_requests
   has_many :customers
-  has_one :customer
+  # has_one :customer を削除するかもしくは has_many :customers を削除する
   has_many :notifications, dependent: :destroy
 
   def today_notifications
-    # 当日の通知を取得
-    today = Date.today
-    notifications.normal_notifications.where('created_at >= ? AND created_at <= ?', today.beginning_of_day,
-                                             today.end_of_day)
+    notifications.normal_notifications.today
   end
 
   def three_weeks_later_notifications
-    # 3週間後の通知を取得
-    three_weeks_later_date = 3.weeks.from_now.to_date
-    notifications.three_weeks_later.where('created_at >= ?', three_weeks_later_date.beginning_of_day)
+    notifications.three_weeks_later.from_three_weeks_later
   end
+end
+
+# app/models/notification.rb
+class Notification < ApplicationRecord
+  # その他の関連やバリデーション
+
+  scope :today, -> { where(created_at: Time.zone.now.all_day) }
+  scope :from_three_weeks_later, -> { where('created_at >= ?', 3.weeks.from_now.beginning_of_day) }
 end

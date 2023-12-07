@@ -7,15 +7,13 @@ class ReservationRequestsController < ApplicationController
   end
 
   def create
-    @reservation_request = ReservationRequest.new(reservation_request_params)
-    @reservation_request.customer_id = params[:reservation_request][:customer_id]
-    @reservation_request.hotel_id = params[:reservation_request][:hotel_id]
-    @customers = current_user.customers
+    @reservation_request = current_user.reservation_requests.new(reservation_request_params)
     if @reservation_request.save
-      redirect_to @reservation_request
+      redirect_to reservation_requests_path, notice: '予約リクエストを作成しました。'
     else
       Rails.logger.error(@reservation_request.errors.full_messages)
       flash.now[:error] = '予約リクエストを作成できませんでした。エラーが発生しました。'
+      @customers = current_user.customers # エラー時に必要な変数をここに移動
       render :new
     end
   end
@@ -73,6 +71,6 @@ class ReservationRequestsController < ApplicationController
 
   def reservation_request_params
     params.require(:reservation_request).permit(:day, :number_of_people, :is_smoking, :food, :course, :memo, :status,
-                                                :customer_id, :hotel_id, :reservation_number).merge(user_id: current_user.id)
+                                                :customer_id, :hotel_id, :reservation_number)
   end
 end
