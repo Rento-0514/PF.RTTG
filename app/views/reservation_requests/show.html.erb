@@ -12,8 +12,6 @@
   <p><strong>メモ:</strong> <%= @reservation_request.memo %></p>
   <p><strong>予約:</strong> <%= @reservation_request.status ? "確定" : "未確定" %></p>
   </div>
-  <%= button_to "編集", edit_reservation_request_path(@reservation_request), class: "btn btn-primary mx-2" %> |
   <%= button_to "消去", reservation_request_path(@reservation_request), method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger' %>
-  <%= button_to "予約一覧", reservation_requests_path, class: "btn btn-light" %>
 </div>
 
